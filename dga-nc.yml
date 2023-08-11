@@ -14,7 +14,7 @@ services:
     restart: always
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
-      - /mnt/nhs/mysql-db:/var/lib/mysql
+      - /mnt/dga/mysql-db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_PASSWORD=password
@@ -29,10 +29,10 @@ services:
     links:
       - db
     volumes:
-      - /mnt/nhs/nextcloud-html:/var/www/html
-      - /mnt/nhs/nextcloud-apps:/var/www/html/apps
-      - /mnt/nhs/nextcloud-config:/var/www/html/config
-      - /mnt/nhs/nextcloud-data:/var/www/html/data
+      - /mnt/dga/nextcloud-html:/var/www/html
+      - /mnt/dga/nextcloud-apps:/var/www/html/apps
+      - /mnt/dga/nextcloud-config:/var/www/html/config
+      - /mnt/dga/nextcloud-data:/var/www/html/data
     environment:
       - MYSQL_PASSWORD=password
       - MYSQL_DATABASE=nextcloud
